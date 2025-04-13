@@ -1,22 +1,21 @@
-describe('Teste completo de esperas e assercoes', () => {
-  it('Devo acessar a pagina, aguardar os elementos', () => {
-  //visita o site de exemplo
-  cy.visit('https://example.cypress.io/todo');  
+describe('Formulário de Cadastro', () => {
+  beforeEach(() => {
   
-  //epera implicita: verifica se a lista de tarefas está visivel
- cy.get('.todo-list li').should('be.visible');
+    cy.visit('http://127.0.0.1:5500/formulario.html')
+  })
 
- cy.get('.new-todo').type('Estudar Cypress{enter}');
- cy.get('.todo-list li').should('contain.text', 'Estudar Cypress');
+  it('Preenche os campos e envia o formulário', () => {
+    // Preencher os campos
+    cy.get('#nome').type('João Silva').should('have.value', 'João Silva')
+    cy.get('#email').type('joao.silva@email.com').should('have.value', 'joao.silva@email.com')
+    cy.get('#telefone').type('1199999999').should('have.value', '1199999999')
+    cy.get('#senha').type('Teste@123').should('have.value', 'Teste@123')
+    cy.get('#confirma_senha').type('Teste@123').should('have.value', 'Teste@123')
 
- //Marca a tarefa como concluida e verifica a mesma.
- cy.get('.todo-list li').last().find('.toggle').click();
- cy.get('.todo-list li').last().should('have.class', 'completed');
+    // Envia o formulário
+    cy.get('form').submit()
 
- //Verifica a quantidade de item na lista
- cy.get('.todo-list li').should('have.length', 3);
 
- //Verifica se um item especifico está lista
- cy.contains('.todo-list li', 'Estudar Cypress').should('be.visible');
-});
+    cy.url().should('include', 'cadastro.html')
+  })
 })

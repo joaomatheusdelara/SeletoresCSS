@@ -1,57 +1,29 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Cadastro de Usuário</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Usuário</title>
 </head>
-
 <body>
+  <h2>Formulário de Cadastro</h2>
+  <form id="cadastro">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required><br><br>
 
-    <h2>Formulário de Cadastro</h2>
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required><br><br>
 
-    <form id="cadastro">
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" name="telefone" pattern="^\d{10}$" required><br><br>
 
-        <label for="nome">Nome:</label>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" required><br><br>
 
-        <input type="text" id="nome" name="nome" required><br><br>
+    <label for="confirma_senha">Confirmar Senha:</label>
+    <input type="password" id="confirma_senha" name="confirma_senha" required><br><br>
 
-
-
-        <label for="email">E-mail:</label>
-
-        <input type="email" id="email" name="email" required><br><br>
-
-
-
-        <label for="telefone">Telefone:</label>
-
-        <input type="tel" id="telefone" name="telefone" pattern="^\d{10}$" required><br><br>
-
-
-
-        <label for="senha">Senha:</label>
-
-        <input type="password" id="senha" name="senha" required><br><br>
-
-
-
-        <label for="confirma_senha">Confirmar Senha:</label>
-
-        <input type="password" id="confirma_senha" name="confirma_senha" required><br><br>
-
-
-
-        <button type="submit">Cadastrar</button>
-
-    </form>
-
+    <button type="submit">Cadastrar</button>
+  </form>
 </body>
-
 </html>
